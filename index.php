@@ -51,9 +51,15 @@
  *     testing
  *     production
  *
+ * Each environment has its branch name respectively:
+ *		different of staging and production and main
+ *		testing
+ *		production
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+	$branch = trim(shell_exec('git rev-parse --abbrev-ref HEAD'));
+	$not_dev_branches = array('production', 'testing');
+	define('ENVIRONMENT', in_array($branch, $not_dev_branches) ? $branch : 'development');
 
 /*
  *---------------------------------------------------------------
@@ -71,6 +77,8 @@ switch (ENVIRONMENT)
 	break;
 
 	case 'testing':
+		error_reporting(-1);
+		ini_set('display_errors', 1);
 	case 'production':
 		ini_set('display_errors', 0);
 		if (version_compare(PHP_VERSION, '5.3', '>='))
