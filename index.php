@@ -57,11 +57,8 @@
  *		production
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	$branch = trim(shell_exec('git rev-parse --abbrev-ref HEAD'));
-	echo 'branch ------------------ ' + $branch + '-------------------';
-	$not_dev_branches = array('production', 'testing');
-	echo 'in ------------------ ' + in_array($branch, $not_dev_branches) + '-------------------';
-	define('ENVIRONMENT', in_array($branch, $not_dev_branches) ? $branch : 'development');
+
+	define('ENVIRONMENT', 'testing');
 
 /*
  *---------------------------------------------------------------
