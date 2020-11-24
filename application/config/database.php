@@ -91,6 +91,8 @@ $config = array(
 	'save_queries' => TRUE
 );
 
+echo ENVIRONMENT;
+
 switch (ENVIRONMENT) {
 	case 'development':
 		$config['hostname'] = 'localhost';
