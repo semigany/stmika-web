@@ -57,7 +57,7 @@
 if($_SERVER["HTTP_HOST"] == "staging.semigany.org"){
 	   define('ENVIRONMENT', 'testing');
 	   define('BASE_URL_ENV', 'http://staging.semigany.org/');
-} else if ($_SERVER["HTTP_HOST"] == "staging.semigany.org"){
+} else if ($_SERVER["HTTP_HOST"] == "semigany.org"){
 	define('ENVIRONMENT', 'production');
 	define('BASE_URL_ENV', 'http://semigany.org/');
 } else {
