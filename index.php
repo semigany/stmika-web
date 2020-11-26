@@ -53,7 +53,7 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-
+echo $_SERVER["HTTP_HOST"];
 if($_SERVER["HTTP_HOST"] == "staging.semigany.org"){
 	   define('ENVIRONMENT', 'testing');
 	   define('BASE_URL_ENV', 'http://staging.semigany.org/');
