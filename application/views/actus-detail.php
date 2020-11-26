@@ -7,8 +7,7 @@
         <div>
             <small
                 class="d-block mb-3 text-muted"><?= strip_tags(date_format(date_create($actu->date),"d/m/Y")) ?></small>
-            <p class="mt-3 mb-3"><?= strip_tags($actu->description) ?></p>
-            
+            <p class="mt-3 mb-3"><?= $actu->description ?></p>
             <img src="<?= base_url('uploads/actus') .'/'.$actu->photo?>" style="max-width:100%;">
         </div>
     </div>

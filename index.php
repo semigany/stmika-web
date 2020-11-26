@@ -51,14 +51,19 @@
  *     testing
  *     production
  *
- * Each environment has its branch name respectively:
- *		different of staging and production and main
- *		testing
- *		production
  * NOTE: If you change these, also change the error_reporting() code below
  */
-
-	define('ENVIRONMENT', 'testing');
+echo $_SERVER["HTTP_HOST"];
+if($_SERVER["HTTP_HOST"] == "staging.semigany.org"){
+	   define('ENVIRONMENT', 'testing');
+	   define('BASE_URL_ENV', 'http://staging.semigany.org/');
+} else if ($_SERVER["HTTP_HOST"] == "staging.semigany.org"){
+	define('ENVIRONMENT', 'production');
+	define('BASE_URL_ENV', 'http://semigany.org/');
+} else {
+	define('ENVIRONMENT', 'development');
+	define('BASE_URL_ENV', 'http://localhost:8888/stmika-web/');
+}
 
 /*
  *---------------------------------------------------------------

@@ -4,7 +4,7 @@
             <h1 class="display-4">Actualités</h1>
         </div>
         <div class="row">
-            <?php 
+            <?php
                 foreach($actus as $actu) {
             ?>
             <div class="col-md-4 col-xs-12 mb-4">
@@ -16,8 +16,8 @@
                     <small><a href="<?= base_url('actus/detail').'/'.$actu->id ?>" class="text-warning">Lire la suite</a></small>
                 </div>
             </div>
-            <?php 
-                } 
+            <?php
+                }
             ?>
         </div>
     </div>
