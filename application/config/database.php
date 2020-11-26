@@ -99,7 +99,10 @@ switch (ENVIRONMENT) {
 		$config['database'] = 'semigany';
 	break;
 	case 'production':
-		// not set yet
+		$config['hostname'] = 'localhost:3306';
+		$config['username'] = 'semigany_dev20';
+		$config['password'] = 'Lp409lx$';
+		$config['database'] = 'semigany_pro20';
 	break;
 	case 'testing':
 		$config['hostname'] = 'localhost:3306';
