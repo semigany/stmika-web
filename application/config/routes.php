@@ -55,4 +55,5 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['stpilot'] = 'admin';
 $route['stpilot/(:any)'] = 'admin/$1';
+$route['admin'] = 'errors/not_found';
 $route['admin/(:any)'] = 'errors/not_found';
