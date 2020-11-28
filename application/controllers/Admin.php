@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Admin extends CI_Controller
 {
-	
+
 	public function index()
 	{
 		$this->load->view('bo/sign-in');
@@ -40,10 +40,10 @@ class Admin extends CI_Controller
 				$_SESSION['admin_username'] = $user->username;
 				redirect('crud/actus', 'refresh');
 			} else {
-				redirect('admin');
+				redirect('stpilot');
 			}
 		} catch (Exception $ex) {
-			redirect('admin');
+			redirect('stpilot');
 		}
 	}
 
@@ -53,6 +53,6 @@ class Admin extends CI_Controller
 		$_SESSION['admin_first_name'],
 		$_SESSION['admin_last_name'],
 		$_SESSION['admin_username']);
-		redirect('admin', 'refresh');
+		redirect('stpilot', 'refresh');
     }
 }
