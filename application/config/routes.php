@@ -54,5 +54,5 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['stpilot'] = 'admin';
-$route['stpilot/logout'] = 'admin/logout';
-$route['admin'] = 'errors/not_found';
+$route['stpilot/(:any)'] = 'admin/$1';
+$route['admin/(:any)'] = 'errors/not_found';

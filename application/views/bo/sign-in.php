@@ -28,7 +28,7 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Authentification</h1>
                   </div>
-                  <form action="<?= base_url('admin/signIn') ?>" method="POST" class="user">
+                  <form action="<?= base_url('stpilot/signIn') ?>" method="POST" class="user">
                     <div class="form-group">
                       <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Nom d'utilisateur">
                     </div>
