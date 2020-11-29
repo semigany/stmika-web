@@ -7,7 +7,7 @@ class User extends CI_Controller
 	{
 		if (isset($_SESSION['id'])){
 			redirect('home', 'redirect');
-		} 
+		}
 		$this->load->model('faculty_model');
 		$this->load->model('promotion_model');
 		$this->load->model('domain_model');
@@ -23,7 +23,7 @@ class User extends CI_Controller
 	{
 		if (isset($_SESSION['id'])){
 			redirect('home', 'redirect');
-		} 
+		}
 		$filename = random_string('alnum', 20);
 		$config['upload_path'] = 'uploads/pdp';
 		$config['allowed_types'] = 'jpg|png|jpeg';
@@ -31,7 +31,7 @@ class User extends CI_Controller
 		$config['file_name'] = $filename;
 
 		$this->load->library('upload', $config);
-		
+
 		$this->load->helper('string');
 		$this->load->model('user_model');
 		$this->load->model('domain_model');
@@ -87,7 +87,7 @@ class User extends CI_Controller
 			array(
 				'field' => 'password',
 				'label' => 'Mot de passe',
-				'rules' => 'required|min_length[1]',
+				'rules' => 'required|min_length[8]',
 				'errors' => array(
 					'required' => 'Mot de passe manquant',
 					'min_length' => 'Le mot de passe doit contenir au moins 8 caractères'
@@ -111,9 +111,9 @@ class User extends CI_Controller
 			)
 		);
 
-		
+
 		if($isStudent == 1) {
-			array_push($rules, 
+			array_push($rules,
 				array(
 					'field' => 'faculty_id',
 					'label' => 'Filière',
@@ -125,7 +125,7 @@ class User extends CI_Controller
 			);
 		}
 		if($isEmployee == 1) {
-			array_push($rules, 
+			array_push($rules,
 				array(
 					'field' => 'domain_id',
 					'label' => 'Secteur d\'activité',
@@ -153,7 +153,7 @@ class User extends CI_Controller
 				$this->image_lib->resize();
 			}
 			$photo = $uploadData['file_name'];
-		} 
+		}
 		$data = (object) [
 			'identifiant' =>                'cl-' . random_string('alnum', 10),
 			'first_name' =>                 $this->input->post('first_name'),
@@ -204,7 +204,7 @@ class User extends CI_Controller
 	{
 		if (isset($_SESSION['id'])){
 			redirect('home', 'redirect');
-		} 
+		}
 		$data['contents'] = 'user/sign-in';
 		$this->load->view('template/layout', $data);
 	}
@@ -213,7 +213,7 @@ class User extends CI_Controller
 	{
 		if (isset($_SESSION['id'])){
 			redirect('home', 'redirect');
-		} 
+		}
 		$this->load->model('user_model');
 		$rules = array(
 			array(
@@ -267,7 +267,7 @@ class User extends CI_Controller
 	{
 		if (!isset($_SESSION['id'])){
 			redirect('user/signInForm', 'redirect');
-		} 
+		}
 		$this->load->model('user_model');
 		$this->load->model('domain_model');
 		$this->load->model('faculty_model');
@@ -284,7 +284,7 @@ class User extends CI_Controller
 	public function registration_requests() {
 		if (!isset($_SESSION['admin_id'])){
 			redirect('admin', 'redirect');
-		} 
+		}
 		$this->load->model('user_model');
 		$perPage = 20;
 		$start_index = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -327,7 +327,7 @@ class User extends CI_Controller
 	public function registration_request_detail($id) {
 		if (!isset($_SESSION['admin_id'])){
 			redirect('admin', 'redirect');
-		} 
+		}
 		$this->load->model('user_model');
 		$this->load->model('domain_model');
 		$this->load->model('faculty_model');
@@ -341,7 +341,7 @@ class User extends CI_Controller
 	public function reject_registration($id) {
 		if (!isset($_SESSION['admin_id'])){
 			redirect('admin', 'redirect');
-		} 
+		}
 		$this->load->model('user_model');
 		$this->user_model->rejectRegistration($id, $this->input->post('message'));
 
@@ -351,7 +351,7 @@ class User extends CI_Controller
 	public function accept_registration($id) {
 		if (!isset($_SESSION['admin_id'])){
 			redirect('admin', 'redirect');
-		} 
+		}
 		$this->load->model('user_model');
 		$this->user_model->acceptRegistration($id);
 		redirect('user/registration_requests');
@@ -360,7 +360,7 @@ class User extends CI_Controller
 	public function forgot_password() {
 		if (isset($_SESSION['id'])){
 			redirect('home', 'redirect');
-		} 
+		}
 		$data['contents'] = 'user/forgot_password';
 		$this->load->view('template/layout', $data);
 	}
@@ -391,7 +391,7 @@ class User extends CI_Controller
 
 				$this->email->from('support@semigany.org', 'Support semigany.org');
 				$this->email->to($user->email);
-		
+
 				$link = base_url('user/password_reset_form').'?t='.$token;
 
 				$mailContent = <<<EOD
@@ -405,11 +405,11 @@ class User extends CI_Controller
 
 				$this->email->subject('Réinitialisation du mot de passe');
 				$this->email->message($mailContent);
-		
+
 				$this->email->send();
 
 				$data['contents'] = 'user/after-forgot-submission';
-				
+
 				$data['message'] = "Un lien de réinitialisation de votre mot de passe a été envoyé à l'adresse email <b>".$email."</b>";
 				$this->load->view('template/layout', $data);
 			} else {
@@ -425,7 +425,7 @@ class User extends CI_Controller
 
 	public function password_reset_form() {
 		$token = $this->input->get('t');
-		
+
 		try {
 			$this->load->model('PwdResetLink_model');
 			$this->PwdResetLink_model->isValidToken($token);
@@ -465,7 +465,7 @@ class User extends CI_Controller
 					)
 				),
 			);
-			
+
 			$this->form_validation->set_rules($rules);
 			if ($this->form_validation->run()) {
 				$this->user_model->updatePassword($this->input->post('password'), $token);
@@ -485,7 +485,7 @@ class User extends CI_Controller
 
 	public function pass_reset_success() {
 		$data['contents'] = 'user/password-reseted';
-		$data['message'] = "Votre mot de passe a été mis à jour. 
+		$data['message'] = "Votre mot de passe a été mis à jour.
 		Vous pouvez vous connecter à présent";
 		$this->load->view('template/layout', $data);
 	}
