@@ -59,7 +59,7 @@ if($_SERVER["HTTP_HOST"] == "staging.semigany.org"){
 	   define('BASE_URL_ENV', 'http://staging.semigany.org/');
 } else if ($_SERVER["HTTP_HOST"] == "semigany.org"){
 	define('ENVIRONMENT', 'production');
-	define('BASE_URL_ENV', 'http://semigany.org/');
+	define('BASE_URL_ENV', 'https://www.semigany.org/');
 } else {
 	define('ENVIRONMENT', 'development');
 	define('BASE_URL_ENV', 'http://localhost:8888/stmika-web/');
