@@ -33,14 +33,18 @@ class Admin extends CI_Controller
 		$this->form_validation->set_rules($rules);
 		try {
 			if ($this->form_validation->run()) {
-				$user = $this->user_model->administratorCredentials($this->input->post('username'), $this->input->post('password'));
-				$_SESSION['admin_id'] = $user->id;
-				$_SESSION['admin_first_name'] = $user->first_name;
-				$_SESSION['admin_last_name'] = $user->last_name;
-				$_SESSION['admin_username'] = $user->username;
-				redirect('crud/actus', 'refresh');
+				try {
+					$user = $this->user_model->administratorCredentials($this->input->post('username'), $this->input->post('password'));
+					$_SESSION['admin_id'] = $user->id;
+					$_SESSION['admin_first_name'] = $user->first_name;
+					$_SESSION['admin_last_name'] = $user->last_name;
+					$_SESSION['admin_username'] = $user->username;
+					redirect('crud/actus', 'refresh');
+				} catch (Exception $ex) {
+					echo $ex;
+				}
 			} else {
-				echo 'kkkk';
+				echo validation_errors();
 				// redirect('stpilot');
 			}
 		} catch (Exception $ex) {
