@@ -40,7 +40,8 @@ class Admin extends CI_Controller
 				$_SESSION['admin_username'] = $user->username;
 				redirect('crud/actus', 'refresh');
 			} else {
-				redirect('stpilot');
+				echo 'kkkk';
+				// redirect('stpilot');
 			}
 		} catch (Exception $ex) {
 			echo $ex;
