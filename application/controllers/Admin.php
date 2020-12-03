@@ -43,7 +43,8 @@ class Admin extends CI_Controller
 				redirect('stpilot');
 			}
 		} catch (Exception $ex) {
-			redirect('stpilot');
+			echo $ex;
+			// redirect('stpilot');
 		}
 	}
 

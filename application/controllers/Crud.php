@@ -8,12 +8,12 @@ class Crud extends CI_Controller
     parent::__construct();
 
     if (!isset($_SESSION['admin_id'])){
-			redirect('admin', 'redirect');
-    } 
-    
+			redirect('stpilot', 'redirect');
+    }
+
     $this->load->library('grocery_CRUD');
     $this->load->library('image_crud');
-    
+
   }
 
   public function actus()
@@ -26,7 +26,7 @@ class Crud extends CI_Controller
     $data['crud'] = $crud->render();
     $this->load->view('template/bo-layout', $data);
   }
-  
+
   public function albumsPhotos()
   {
     $crud = new grocery_CRUD();
@@ -88,7 +88,7 @@ class Crud extends CI_Controller
   public function photos($album_id)
   {
     $this->load->model('album_model');
-    
+
     $image_crud = new Image_crud();
 
     $image_crud->set_primary_key_field('id');
