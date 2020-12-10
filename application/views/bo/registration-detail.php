@@ -25,13 +25,13 @@
                     <div class="person-item col">
                         <div class="row">
                             <div class="col-md-3 col-sm-12 user-photo">
-                                <?php 
+                                <?php
                     $photo = base_url('uploads/pdp'). '/'.$registration->photo;
                     if (empty($registration->photo)) {
                       $photo = "https://ui-avatars.com/api/?name=". $registration->first_name . ' ' . $registration->last_name ."&background=F5F8FD&color=E0A800&rounded=true";
                     }?>
                                  <img src="<?= $photo ?>" alt="<?= $registration->first_name . ' ' . $registration->last_name ?>" class="rounded-circle">
-                
+
                             </div>
                             <div class="col-md-9 col-sm-12">
                                 <h2 class="person-name">
@@ -74,6 +74,9 @@
 
                             <dt class="col-sm-3">Filière</dt>
                             <dd class="col-sm-9"><?= $faculty->title ?></dd>
+
+                            <dt class="col-sm-3">Specialité</dt>
+                            <dd class="col-sm-9"><?= $registration->specialty ?></dd>
 
                             <dt class="col-sm-3">Niveau</dt>
                             <dd class="col-sm-9"><?= $registration->level ?></dd>

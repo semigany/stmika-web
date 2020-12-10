@@ -6,7 +6,7 @@
     <div class="section-header">
       <h1 class="detail-main-title">Annuaire</h1>
     </div>
-  
+
     <div class="clearfix"></div>
 
     <div class="row">
@@ -14,7 +14,7 @@
         <div class="person-item">
           <div class="row pt-2 mb-4">
             <div class="user-photo col-md-4 col-sm-12">
-              <?php 
+              <?php
               $photo = base_url('uploads/pdp'). '/'.$user->photo;
               if (empty($user->photo)) {
                 $photo = "https://ui-avatars.com/api/?name=". $user->first_name . ' ' . $user->last_name ."&background=F5F8FD&color=E0A800&rounded=true";
@@ -68,6 +68,9 @@
           <dt class="col-sm-4">Filière</dt>
           <dd class="col-sm-8"><?= $faculty->title ?></dd>
 
+          <dt class="col-sm-4">Specialité</dt>
+          <dd class="col-sm-8"><?= $user->specialty ?></dd>
+
           <dt class="col-sm-4">Niveau</dt>
           <dd class="col-sm-8"><?= $user->level ?></dd>
 
@@ -106,7 +109,7 @@
             <a href="<?= base_url('user/details/') . $u->id ?>">
               <div class="row mb-2 related-user-item d-flex align-items-center">
                 <div class="col-2 img">
-                  <?php 
+                  <?php
                     $photo = base_url('uploads/pdp'). '/'.$u->photo;
                     if (empty($u->photo)) {
                       $photo = "https://ui-avatars.com/api/?name=". $u->first_name . ' ' . $u->last_name ."&background=F5F8FD&color=E0A800&rounded=true";

@@ -211,6 +211,11 @@
             </div>
 
             <div class="form-group">
+              <label for="specialty">Specialité</label>
+              <input type="text" class="form-control" id="specialty" name="specialty" value="<?php echo set_value('specialty'); ?>">
+            </div>
+
+            <div class="form-group">
               <label for="level">Niveau</label>
               <input type="text" class="form-control" id="level" name="level" value="<?php echo set_value('level'); ?>">
             </div>

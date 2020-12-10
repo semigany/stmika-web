@@ -171,6 +171,7 @@ class User extends CI_Controller
 			'school_name' =>                $this->input->post('school_name'),
 			'faculty_id' =>                 $this->input->post('faculty_id'),
 			'level' =>                      $this->input->post('level'),
+			'specialty' =>                  $this->input->post('specialty'),
 			'employee' =>                   $isEmployee,
 			'job_title' =>                  $this->input->post('job_title'),
 			'domain_id' =>                  $this->input->post('domain_id'),

@@ -17,6 +17,7 @@
         public $school_name;
         public $faculty_id;
         public $level;
+        public $specialty;
         // is employee
         public $employee;
         public $job_title;
@@ -44,6 +45,7 @@
             $this->school_name =                        $attributes->school_name;
             $this->faculty_id =                         $attributes->faculty_id;
             $this->level =                      $attributes->level;
+            $this->specialty =                      $attributes->specialty;
             $this->employee =                      $attributes->employee;
             $this->job_title =                      $attributes->job_title;
             $this->domain_id =                      $attributes->domain_id;
